@@ -148,7 +148,6 @@ const AuthForm = () => {
                                     </div>
                                 </div>
                             )}
-
                             <div>
                                 <button>{isLogin ? "Login" : "Sing up"}</button>
                                 <div>
