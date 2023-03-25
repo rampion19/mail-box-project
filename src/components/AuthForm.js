@@ -1,5 +1,7 @@
 import React, { useRef, useState } from "react";
 import classes from './AuthForm.module.css';
+import { useHistory } from 'react-router-dom';
+
 
 const AuthForm = () => {
 
@@ -7,6 +9,8 @@ const AuthForm = () => {
     const [isValid, setIsValid] = useState(false);
     const [password, setPassword] = useState("");
     const [confirmPassword, setconfirmPassword] = useState("");
+    const history = useHistory();
+ 
 
     const emailInputRef = useRef();
     const passwordInputRef = useRef();
@@ -50,8 +54,8 @@ const AuthForm = () => {
                     }
                 }
             ).then((res) => {
-                console.log("Login Successfull")
-                alert("Login Successfull")
+                console.log("Signup Successfull")
+                alert("Signup Successfull")
             })
                 .catch((err) => {
                     console.log(err)
@@ -72,6 +76,9 @@ const AuthForm = () => {
                 }
             ).then((res) => {
                 if (res.ok) {
+                    console.log("Login Successfull")
+                    alert("Login Successfull")
+                    history.replace('./home')
                     return res.json();
                 } else {
                     return res.json().then((data) => {
