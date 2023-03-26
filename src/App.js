@@ -1,32 +1,37 @@
-import React from "react";
-import "./App.css";
-import AuthPage from "./components/Pages/AuthPage";
+import SignUp from './components/Auth/SignUp';
+import React from 'react';
+import './App.css';
 import { Route } from "react-router-dom";
-import Mailfirst from "./components/Mail/ComposeMail";
-import Inbox from "./components/Mail/Inbox";
-import MailDetails from "./components/Mail/MailDetails";
+import { Switch } from 'react-router-dom';
+import LogIn from './components/Auth/Login';
+import Home from './components/Pages/Home';
+import Navbar from './components/Pages/Navbar';
+import Inbox from './components/Mail/Inbox';
 
 function App() {
   return (
-    <main>
-      <h1>MailBox</h1>
-      <Route path="/" exact>
-        <AuthPage />
-      </Route>
-      <Route path="/auth" exact>
-        <AuthPage />
-      </Route>
-      <Route path="/inbox" exact>
-        <Inbox />
-      </Route>
-      <Route path="/inbox/details" exact>
-        <MailDetails />
-      </Route>
-      <Route path="/mail">
-        <Mailfirst />
-      </Route>
-    </main>
-  );
+    <>
+      <Navbar></Navbar>
+      <Switch>
+        <Route exact path='/' >
+          <LogIn />
+        </Route>
+        <Route path='/signup' >
+          <SignUp />
+        </Route>
+        <Route path='/login'  >
+          <LogIn />
+        </Route>
+        <Route path='/home' >
+          <Home />
+        </Route>
+        <Route path="/inbox">
+          <Inbox />
+        </Route>
+      </Switch>
+    </>
+  )
 }
+
 
 export default App;

@@ -1,0 +1,20 @@
+wrapperClassName {
+    background-color: #f2f2f2;
+    padding: 10px;
+  }
+
+.editorClassName {
+    font-size: 16px;
+    color: white;
+    border: 1px solid gray;
+    margin-top: 20px;
+    padding-bottom: 100px;
+
+  }
+
+
+  .toolbarClassName {
+    background-color: white;
+    border: 1px solid gray;
+    padding: 100px;
+  }

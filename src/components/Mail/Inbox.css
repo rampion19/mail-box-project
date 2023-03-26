@@ -1,0 +1,87 @@
+.inbox-container {
+    display: flex;
+    background-color: #ccc;
+
+  }
+
+  .inbox-sidebar {
+    padding: 20px;
+    border-right: 1px solid #ccc;
+    width: 200px;
+  }
+
+  .inbox-sidebar button {
+    display: block;
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .inbox-sidebar button:hover {
+    background-color: #0069d9;
+  }
+
+  .inbox-list {
+    padding: 20px;
+    flex: 1;
+  }
+
+  .inbox-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .inbox-item input[type="checkbox"] {
+    margin-right: 10px;
+  }
+
+  .inbox-item-from {
+    flex: 1;
+    font-weight: bold;
+    margin-left: 45px;
+  }
+
+  .inbox-item-to {
+    flex: 1;
+    margin-left: 45px;
+  }
+
+  .inbox-item-message {
+    flex: 2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-left: 45px;
+  }
+
+  .inbox-list-heading {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    font-weight: bold;
+    background-color: #007bff;
+    color: #fff;
+  }
+
+  .inbox-list-heading div {
+    flex: 1;
+  }
+
+  @media screen and (max-width: 600px) {
+    .inbox-container {
+      flex-direction: column;
+    }
+
+    .inbox-sidebar {
+      border: none;
+      width: 100%;
+    }
+  }

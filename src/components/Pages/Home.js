@@ -1,11 +1,6 @@
-import { Fragment } from "react";
+import EditorPanel from "../Mail/Editor"
 
 const Home = () => {
-return (
-    <Fragment>
-        <p>Welcome to yor mail-box</p>
-    </Fragment>
-)
+    return <EditorPanel />
 }
-
-export default Home;
+export default Home

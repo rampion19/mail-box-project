@@ -1,0 +1,36 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    padding: 0 20px;
+    background-color: lightgreen;
+    color: #eb0707;
+    align-items: center;
+}
+
+.navbar-header {
+    margin: 0;
+}
+
+.navbar-nav {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item {
+    margin-left: 20px;
+}
+
+.nav-link {
+    color: #eb0707;
+}
+
+.button {
+    margin-left: 3rem;
+    background-color: 'white';
+    height: 2rem;
+    width: 4rem;
+}

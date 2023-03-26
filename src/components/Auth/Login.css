@@ -1,0 +1,35 @@
+.cardlogin{
+    width:90%;
+    max-width: 35rem;
+    padding: 2rem;
+    border-radius: 15px;
+    margin: 3rem auto;
+    background-color:#7B68EE;
+ }
+ .formlogin input{
+     display: flex;
+     margin-bottom: 18px;
+     padding: 10px;
+     width: 95%;
+ }
+ .formlogin label{
+     display: flex;
+     margin-bottom: 18px;
+     font-size: large;
+     font-style: bold;
+ }
+ .formlogin button{
+     margin: 5px;
+     width: 70px;
+     height: 30px;
+     background-color: black;
+     color: azure;
+     cursor: pointer;
+ }
+ .login{
+     width: 100%;
+     margin-top: 10px;
+     height: 40px;
+     font-size: medium;
+     cursor: pointer;
+ }
