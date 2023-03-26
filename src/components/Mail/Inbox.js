@@ -1,10 +1,11 @@
-import { useEffect } from "react";
+import { useEffect, useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { mailActions } from "../store/MailSlice";
 import "./Inbox.css";
 
 const Inbox = () => {
+  const [isSentButtonClicked, setIsSentButtonClicked] = useState(false)
   const history = useHistory();
   const disptach = useDispatch();
   const mailData = useSelector((state) => state.mail.mailData);
@@ -31,8 +32,23 @@ const Inbox = () => {
     );
   }, [disptach, senderurl]);
 
-  const sentEmailsHandler = () => {
-    // Handle sent emails
+  const sentEmailsHandler = async () => {
+    setIsSentButtonClicked(true)
+    try {
+      const sentMails = await fetch(
+        `https://mail-box-project-default-rtdb.firebaseio.com/${senderurl}.json`
+      );
+      if (sentMails.ok) {
+        const sentMailsjson = await sentMails.json();
+        const sentMailsArray=Object.entries(sentMailsjson).map(([id,{from,message,read,to}])=>({id,from,message,read,to}))
+        disptach(mailActions.sentMails(sentMailsArray))
+      } else {
+        const sentMailsjson = await sentMails.json();
+        throw sentMailsjson.error;
+      }
+    } catch (error) {
+      alert(error.message);
+    }
   };
 
   // reading mails handler
@@ -123,19 +139,15 @@ const Inbox = () => {
                   {mail.read === true && mail.message}
                 </div>
               </div>
-              <div className="inbox-item-content">
-
-
-
-              </div>
-              <div class="delete-button-container">
-                <button
+              <div className="inbox-item-content"></div>
+              <div className="delete-button-container">
+                {isSentButtonClicked===false&&<button
                   onClick={() => {
                     deleteHandler(mail);
                   }}
                 >
                   Delete
-                </button>
+                </button>}
               </div>
             </div>
           ))}

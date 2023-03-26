@@ -1,60 +1,44 @@
 .inbox-container {
   display: flex;
-  margin: 20px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  background-color: #ccc;
-  align-items: center;
-  justify-content: space-between;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .inbox-sidebar {
-  flex: 0 0 200px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  width: 200px;
   border-right: 1px solid #ccc;
+  padding-right: 20px;
 }
 
 .inbox-button {
-  width: 150px;
+  display: block;
+  margin-bottom: 20px;
+  width: 100%;
   padding: 10px;
-  margin-bottom: 10px;
-  background-color: #007bff;
-  color: #fff;
   border: none;
   border-radius: 5px;
+  background-color: #4CAF50;
+  color: white;
   cursor: pointer;
 }
 
 .inbox-list {
   flex: 1;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
+  padding: 0 20px;
 }
 
 .inbox-item {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   margin-bottom: 10px;
   padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.inbox-item input {
-  margin-right: 10px;
+  background-color: #f7f7f7;
 }
 
 .inbox-item-header {
+  flex: 1;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: 100%;
 }
 
 .inbox-item-header-from {
@@ -63,7 +47,17 @@
 }
 
 .inbox-item-header-message {
+  margin-left: 20px;
   margin-right: 10px;
+  font-weight: bold;
+}
+
+.inbox-item-from {
+  margin-right: 20px;
+}
+
+.inbox-item-message {
+  flex: 1;
 }
 
 .delete-button-container {
@@ -72,11 +66,10 @@
 }
 
 .delete-button-container button {
-  padding: 5px 10px;
-  margin-left: 10px;
-  background-color: #dc3545;
-  color: #fff;
+  background-color: #f44336;
+  color: white;
   border: none;
   border-radius: 5px;
+  padding: 5px 10px;
   cursor: pointer;
 }
