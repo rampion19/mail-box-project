@@ -14,22 +14,24 @@ const Inbox = () => {
   const senderurl = email.replace("@", "").replace(".", "").replace(".", "");
 
   useEffect(() => {
-    fetch(
-      `https://mail-box-project-default-rtdb.firebaseio.com/${senderurl}.json`
-    ).then((res) =>
-      res.json().then((data) => {
-        const fetchAllEmails = Object.entries(data).map(
-          ([id, { from, message, read, to }]) => ({
-            id,
-            from,
-            message,
-            read,
-            to,
-          })
-        );
-        disptach(mailActions.onRefresh(fetchAllEmails));
-      })
-    );
+    setInterval(() => {
+      fetch(
+        `https://mail-box-project-default-rtdb.firebaseio.com/${senderurl}.json`
+      ).then((res) =>
+        res.json().then((data) => {
+          const fetchAllEmails = Object.entries(data).map(
+            ([id, { from, message, read, to }]) => ({
+              id,
+              from,
+              message,
+              read,
+              to,
+            })
+          );
+          disptach(mailActions.onRefresh(fetchAllEmails));
+        })
+      );
+    }, 2000)
   }, [disptach, senderurl]);
 
   const sentEmailsHandler = async () => {
