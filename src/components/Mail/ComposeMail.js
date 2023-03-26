@@ -53,7 +53,7 @@ const Mailfirst=()=> {
       const data = await res.json();
 
       fetch(
-        `https://mail-box-project-default-rtdb.firebaseio.com/${receivedEmail}/received/${data.name}.json`,
+        `https://mail-box-project-default-rtdb.firebaseio.com/${receivedEmail}/received.json`,
         {
           method: "PATCH",
           body: JSON.stringify({
@@ -89,7 +89,7 @@ const Mailfirst=()=> {
       const data = await res.json();
 
       fetch(
-        `https://mail-box-project-default-rtdb.firebaseio.com/${emailSender}/sent/${data.name}.json`,
+        `https://mail-box-project-default-rtdb.firebaseio.com/${emailSender}/sent.json`,
         {
           method: "PATCH",
           body: JSON.stringify({
