@@ -32,6 +32,11 @@ const mailSlice = createSlice({
                 0
             );
         },
+        deleteMail(state, action) {
+            const presentmails = [...state.mailData]
+            const remainingMails = presentmails.filter(item => item.id !== action.payload.id)
+            state.mailData = remainingMails;
+        },
 
         setToEmail(state, action) {
             state.toEmail = action.payload;

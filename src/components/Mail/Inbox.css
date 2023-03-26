@@ -1,87 +1,82 @@
 .inbox-container {
-    display: flex;
-    background-color: #ccc;
+  display: flex;
+  margin: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  background-color: #ccc;
+  align-items: center;
+  justify-content: space-between;
+}
 
-  }
+.inbox-sidebar {
+  flex: 0 0 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid #ccc;
+}
 
-  .inbox-sidebar {
-    padding: 20px;
-    border-right: 1px solid #ccc;
-    width: 200px;
-  }
+.inbox-button {
+  width: 150px;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
-  .inbox-sidebar button {
-    display: block;
-    margin-bottom: 10px;
-    width: 100%;
-    padding: 10px;
-    text-align: center;
-    border: none;
-    background-color: #007bff;
-    color: #fff;
-    font-size: 16px;
-    cursor: pointer;
-  }
+.inbox-list {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
 
-  .inbox-sidebar button:hover {
-    background-color: #0069d9;
-  }
+.inbox-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
 
-  .inbox-list {
-    padding: 20px;
-    flex: 1;
-  }
+.inbox-item input {
+  margin-right: 10px;
+}
 
-  .inbox-item {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
-  }
+.inbox-item-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
 
-  .inbox-item input[type="checkbox"] {
-    margin-right: 10px;
-  }
+.inbox-item-header-from {
+  font-weight: bold;
+  margin-right: 10px;
+}
 
-  .inbox-item-from {
-    flex: 1;
-    font-weight: bold;
-    margin-left: 45px;
-  }
+.inbox-item-header-message {
+  margin-right: 10px;
+}
 
-  .inbox-item-to {
-    flex: 1;
-    margin-left: 45px;
-  }
+.delete-button-container {
+  display: flex;
+  align-items: center;
+}
 
-  .inbox-item-message {
-    flex: 2;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    margin-left: 45px;
-  }
-
-  .inbox-list-heading {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    font-weight: bold;
-    background-color: #007bff;
-    color: #fff;
-  }
-
-  .inbox-list-heading div {
-    flex: 1;
-  }
-
-  @media screen and (max-width: 600px) {
-    .inbox-container {
-      flex-direction: column;
-    }
-
-    .inbox-sidebar {
-      border: none;
-      width: 100%;
-    }
-  }
+.delete-button-container button {
+  padding: 5px 10px;
+  margin-left: 10px;
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
