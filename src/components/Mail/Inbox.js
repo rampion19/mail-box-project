@@ -14,31 +14,29 @@ const Inbox = () => {
   const senderurl = email.replace("@", "").replace(".", "").replace(".", "");
 
   useEffect(() => {
-    setInterval(() => {
-      fetch(
-        `https://mail-box-project-default-rtdb.firebaseio.com/${senderurl}.json`
-      ).then((res) =>
-        res.json().then((data) => {
-          const fetchAllEmails = Object.entries(data).map(
-            ([id, { from, message, read, to }]) => ({
-              id,
-              from,
-              message,
-              read,
-              to,
-            })
-          );
-          disptach(mailActions.onRefresh(fetchAllEmails));
-        })
-      );
-    }, 2000)
+    fetch(
+      `https://mail-box-2c10a-default-rtdb.firebaseio.com/${senderurl}.json`
+    ).then((res) =>
+      res.json().then((data) => {
+        const fetchAllEmails = Object.entries(data).map(
+          ([id, { from, message, read, to }]) => ({
+            id,
+            from,
+            message,
+            read,
+            to,
+          })
+        );
+        disptach(mailActions.onRefresh(fetchAllEmails));
+      })
+    );
   }, [disptach, senderurl]);
 
   const sentEmailsHandler = async () => {
     setIsSentButtonClicked(true)
     try {
       const sentMails = await fetch(
-        `https://mail-box-project-default-rtdb.firebaseio.com/${senderurl}.json`
+        `https://mail-box-2c10a-default-rtdb.firebaseio.com/${senderurl}.json`
       );
       if (sentMails.ok) {
         const sentMailsjson = await sentMails.json();
@@ -60,7 +58,7 @@ const Inbox = () => {
     if (mail.read === false) {
       try {
         const updateRead = await fetch(
-          `https://mail-box-project-default-rtdb.firebaseio.com/${senderurl}/${id}.json`,
+          `https://mail-box-2c10a-default-rtdb.firebaseio.com/${senderurl}/${id}.json`,
           {
             method: "PUT",
             body: JSON.stringify({ ...mail, read: true }),
@@ -86,7 +84,7 @@ const Inbox = () => {
     const sender = mail.to.replace("@", "").replace(".", "").replace(".", "");
     try {
       const deleteMail = await fetch(
-        `https://mail-box-project-default-rtdb.firebaseio.com/${sender}/${id}.json`,
+        `https://mail-box-2c10a-default-rtdb.firebaseio.com/${sender}/${id}.json`,
         {
           method: "DELETE",
         }
@@ -129,7 +127,7 @@ const Inbox = () => {
                   readMailsHandler(mail);
                 }}
                 type="checkbox"
-                checked={mail.read === true ? true : false}
+                // checked={mail.read === true ? true : false}
               />
               <div className="inbox-item-header">
                 <div className="inbox-item-header-from">From</div>

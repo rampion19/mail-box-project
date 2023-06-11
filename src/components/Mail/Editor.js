@@ -14,6 +14,7 @@ const EditorPanel = () => {
 
     const handleEditorChange = (newEditorState) => {
         setEditorState(newEditorState);
+        // console.log(editorState);
     };
     const handleRecipientEmailChange = (event) => {
         setRecipientEmail(event.target.value);
@@ -25,9 +26,14 @@ const EditorPanel = () => {
         const messageBody = editorState.getCurrentContent().getPlainText();
         const senderMailUrl = email.replace("@", '').replace(".", '').replace(".", '');
         const recieverUrl = recipientEmail.replace("@", '').replace(".", '').replace(".", '');
+        
+        if(recipientEmail.trim() === ""){
+            alert("Recipient email cannot be empty")
+            return;
+        }
         try {
             const sendDataToDb = await fetch(
-                `https://mail-box-project-default-rtdb.firebaseio.com/${senderMailUrl}.json`,
+                `https://mail-box-2c10a-default-rtdb.firebaseio.com/${senderMailUrl}.json`,
                 {
                     method: "POST",
                     body: JSON.stringify({
@@ -42,7 +48,7 @@ const EditorPanel = () => {
                 }
             ); //fetch ends`)
             await fetch(
-                `https://mail-box-project-default-rtdb.firebaseio.com/${recieverUrl}.json`,
+                `https://mail-box-2c10a-default-rtdb.firebaseio.com/${recieverUrl}.json`,
                 {
                     method: "POST",
                     body: JSON.stringify({
@@ -57,7 +63,7 @@ const EditorPanel = () => {
                 }
             ); //fetch ends
             if (sendDataToDb.ok) {
-                const response = await sendDataToDb.json();
+                // const response = await sendDataToDb.json();
                 history.replace('/inbox')
             } else {
                 const response = await sendDataToDb.json();

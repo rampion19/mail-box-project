@@ -21,7 +21,7 @@ const SignUp = () => {
     //Async Code
     try {
       const sendSignupData = await fetch(
-        `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyC_rvgnAoPoAtDLCLNcgx2KoA0BBVmbA4E`,
+        `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyD4Ppx44lrCv7O_UQDI3JXseDARLXHuhLM`,
         {
           method: "POST",
           body: JSON.stringify({

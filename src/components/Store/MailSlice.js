@@ -10,7 +10,6 @@ const mailSlice = createSlice({
     name: "mail",
     initialState: intialstate,
     reducers: {
-        addSentMails(state, action) { },
         onRefresh(state, action) {
             const Allmails = action.payload;
             const toEmails = Allmails.filter((item) => item.to === state.email);
@@ -38,9 +37,7 @@ const mailSlice = createSlice({
             );
             state.mailData = remainingMails;
         },
-        setToEmail(state, action) {
-            state.toEmail = action.payload;
-        },
+    
         sentMails(state, action) {
             const sentMails = action.payload
             const fromMyMails = sentMails.filter(item => item.from === state.email)
